@@ -2,6 +2,8 @@ package com.gearshift.service.impl;
 
 import com.gearshift.entity.Car;
 import com.gearshift.entity.CarModel;
+import com.gearshift.entity.Client;
+import com.gearshift.entity.RentedCar;
 import com.gearshift.exception.NotFoundException;
 import com.gearshift.repository.CarModelRepository;
 import com.gearshift.repository.CarRepository;
@@ -10,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

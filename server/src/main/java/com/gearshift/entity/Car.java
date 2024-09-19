@@ -31,6 +31,9 @@ public class Car {
     @Column(name = "registered_at", nullable = false)
     private LocalDate registeredAt;
 
-    @OneToMany(mappedBy = "car")
+    @Column(name = "rent_status", nullable = false)
+    private RentStatus rentStatus = RentStatus.RETURNED;
+
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     private List<RentedCar> rentals;
 }
