@@ -1,0 +1,51 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="create-form">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" formControlName="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input id="phone" type="text" formControlName="phone" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="text" formControlName="email" />
+      </div>
+
+
+    <div formGroupName="address" class="model-group">
+        <div class="form-group">
+          <label for="street">Street:</label>
+          <input id="street" type="text" formControlName="street" />
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input id="city" type="text" formControlName="city" />
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input id="country" type="text" formControlName="country" />
+        </div>
+        <div class="form-group">
+          <label for="zip">Zip:</label>
+          <input id="zip" type="text" formControlName="zip" />
+        </div>
+    </div>
+  
+
+    <button type="submit" [disabled]="!clientForm.valid">
+        @if (saveClient.result$ | async; as saveCarResult) { @if
+        (saveCarResult.isPending) {
+        Saving...
+        } @if (saveCarResult.isSuccess) {
+        Success!
+        } @if (saveCarResult.isError) {
+        Error!
+        } @if (saveCarResult.isIdle) {
+          Save
+        }
+      }
+      </button>
+  </form>

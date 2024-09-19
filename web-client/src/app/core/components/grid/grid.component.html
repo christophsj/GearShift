@@ -1,0 +1,20 @@
+<div class="grid">
+    <div class="card" >
+      <div class="card-body" (click)="create()">
+        <div class="create-button">
+          <span class="plus-icon">+</span>
+          <span class="button-text">Create</span>
+        </div>
+      </div>
+    </div>
+    @for(item of items; track item) {
+        <div class="grid-item" (click)="link(item)">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-primary">{{ item.title }}</h5>
+                <p> {{ item.text }}</p>
+              </div>
+            </div>
+          </div>
+    }
+</div>

@@ -1,0 +1,11 @@
+@if (cars.result$ | async; as result) { @if (result.isLoading) {
+<p>Loading...</p>
+} @if (result.isError) {
+<p>Error</p>
+} @if (result.isSuccess) {
+<app-grid
+  [items]="toListItems(result.data.pages)"
+  [createLink]="['/cars/create']"
+></app-grid>
+
+} }

@@ -1,0 +1,118 @@
+$card-bg-color: #f8f9fa;
+$card-border-color: #e9ecef;
+$card-shadow-color: rgba(0, 0, 0, 0.1);
+$primary-color: #007bff;
+$text-color: #333;
+
+.card {
+  height: 100%;
+  background-color: $card-bg-color;
+  border: 1px solid $card-border-color;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px $card-shadow-color;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px $card-shadow-color;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $text-color;
+
+    &.text-primary {
+      color: $primary-color;
+    }
+  }
+}
+
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$light-gray: #f8f9fa;
+$dark-gray: #343a40;
+$border-color: #ced4da;
+
+.create-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: $light-gray;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: $dark-gray;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
+      }
+    }
+  }
+
+  .model-group {
+    background-color: white;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      background-color: $secondary-color;
+      cursor: not-allowed;
+    }
+  }
+}
+

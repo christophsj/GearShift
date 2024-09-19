@@ -1,0 +1,25 @@
+@if (car | async; as result) { @if (result.isLoading) {
+<p>Loading...</p>
+} @if (result.isError) {
+<p>Error</p>
+} @if (result.isSuccess) {
+<div class="car-detail">
+  <h2>{{result.data.model.make}}  {{ result.data.model.model }} {{result.data.model.year}}</h2>
+  <p><strong>Kilometers:</strong> {{ result.data.kilometers }}</p>
+  <p>
+    <strong>Registered At:</strong>
+    {{ result.data.registeredAt | date : "mediumDate" }}
+  </p>
+
+  <h3>Rentals</h3>
+  @for (item of result.data.rentals; track item) {
+  <div class="rental-item">
+    <p><strong>Client:</strong> {{ item.client.name }}</p>
+    <p><strong>Start:</strong> {{ item.start | date : "mediumDate" }}</p>
+    <p><strong>End:</strong> {{ item.end | date : "mediumDate" }}</p>
+  </div>
+  } @if (!result.data.rentals.length) {
+  <p>No rentals</p>
+  }
+</div>
+} }

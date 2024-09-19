@@ -1,0 +1,8 @@
+
+<div class="chip-container">
+  @for(model of models; track model) {
+  <div class="chip" (click)="toggleChip(model)" [class.selected]="selectedModelId == model.id">
+    {{ model.make }} {{ model.model }} ({{model.year}})
+  </div>
+  }
+</div>

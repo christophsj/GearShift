@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.create-button {
+  display: flex;
+  align-items: center;
+  color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.plus-icon {
+  font-size: 34px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+.button-text {
+  font-size: 26px;
+}

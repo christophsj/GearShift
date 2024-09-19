@@ -1,0 +1,21 @@
+@if (client | async; as result) { @if (result.isLoading) {
+<p>Loading...</p>
+} @if (result.isError) {
+<p>Error</p>
+} @if (result.isSuccess) {
+<div class="client-detail">
+  <h2>{{ result.data.name }}</h2>
+  <p><strong>Email</strong> {{ result.data.email }}</p>
+  <p>
+    <strong>Phone</strong>
+    {{ result.data.phone }}
+  </p>
+  <p>
+    <strong>Adress</strong>
+    {{ result.data.address.street }}
+    {{ result.data.address.city }}
+    {{ result.data.address.country }}
+    {{ result.data.address.zip }}
+  </p>
+</div>
+} }

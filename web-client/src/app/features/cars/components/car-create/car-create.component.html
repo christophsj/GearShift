@@ -1,0 +1,53 @@
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="create-form">
+  <div class="form-group">
+    <label for="kilometers">Kilometers:</label>
+    <input id="kilometers" type="number" formControlName="kilometers" />
+  </div>
+  <div class="form-group">
+    <label for="registeredAt">Registered At:</label>
+    <input id="registeredAt" type="date" formControlName="registeredAt" />
+  </div>
+  <div class="form-group">
+    <label for="color">Color:</label>
+    <input id="color" type="text" formControlName="color" />
+  </div>
+  <div formGroupName="model" class="model-group">
+    <div class="form-group">
+      <label for="make">Make:</label>
+      <input id="make" type="text" formControlName="make" />
+    </div>
+    <div class="form-group">
+      <label for="model">Model:</label>
+      <input id="model" type="text" formControlName="model" />
+    </div>
+    <div class="form-group">
+      <label for="year">Year:</label>
+      <input id="year" type="text" formControlName="year" />
+    </div>
+  </div>
+
+
+  @if (models.result$ | async; as result) { @if (result.isLoading) {
+  <p>Loading models...</p>
+  } @if (result.isError) {
+  <p>Error</p>
+  } @if (result.isSuccess) {
+  <app-car-model-selector [models]="result.data" [selectedModelId]="modelId" (selectedModelEmitter)="onModelSelected($event)"></app-car-model-selector>
+  } }
+
+  <button type="submit" [disabled]="!carForm.valid">
+    @if (saveCar.result$ | async; as saveCarResult) { @if
+    (saveCarResult.isPending) {
+    Saving...
+    } @if (saveCarResult.isSuccess) {
+    Success!
+    } @if (saveCarResult.isError) {
+    Error!
+    } @if (saveCarResult.isIdle) {
+      Save
+    }
+  
+  
+  }
+  </button>
+</form>
