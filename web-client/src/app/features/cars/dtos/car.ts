@@ -1,10 +1,16 @@
 import { RentedCar } from '../../../core/dto/rental';
 
+export enum RentStatus {
+  RENTED = 'RENTED',
+  AVAILABLE = 'RETURNED',
+}
+
 export interface Car {
   id: string;
   kilometers: number;
   registeredAt: Date;
   model: CarModel;
+  rentStatus: RentStatus;
 }
 
 export interface CarDetail {
@@ -13,6 +19,7 @@ export interface CarDetail {
   registeredAt: Date;
   model: CarModel;
   rentals: RentedCar[];
+  rentStatus: RentStatus;
 }
 
 export interface CreateCar {
@@ -38,4 +45,11 @@ export interface CarModelQuery {
 export interface BasicCar {
   id: string;
   model: CarModel;
+}
+
+export interface CreateRental {
+  rentalStart: string;
+  rentalEnd: string;
+  clientId: string;
+  carId: string;
 }

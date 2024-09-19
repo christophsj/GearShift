@@ -4,19 +4,43 @@
 <p>Error</p>
 } @if (result.isSuccess) {
 <div class="car-detail">
-  <h2>{{result.data.model.make}}  {{ result.data.model.model }} {{result.data.model.year}}</h2>
+  <h2>
+    {{ result.data.model.make }} {{ result.data.model.model }}
+    {{ result.data.model.year }}
+  </h2>
   <p><strong>Kilometers:</strong> {{ result.data.kilometers }}</p>
   <p>
     <strong>Registered At:</strong>
     {{ result.data.registeredAt | date : "mediumDate" }}
   </p>
 
+  @if(rented(result.data)) {
+    <div class="rent-status-container">
+      <strong>Currently rented.</strong>
+      <button (click)="returnCar(result.data.id)">Return</button>
+    </div>
+  } 
+
+
+  <h3>New Rental</h3>
+
+  @if (clients | async; as clientResult) { @if (clientResult.isLoading) {
+  <p>Loading...</p>
+  } @if (clientResult.isError) {
+  <p>Error</p>
+  } @if (clientResult.isSuccess) {
+  <app-new-rental-form
+    [clients]="toList(clientResult.data)"
+    (newRent)="createRental($event)"
+  > </app-new-rental-form>
+  } }
+
   <h3>Rentals</h3>
   @for (item of result.data.rentals; track item) {
   <div class="rental-item">
     <p><strong>Client:</strong> {{ item.client.name }}</p>
-    <p><strong>Start:</strong> {{ item.start | date : "mediumDate" }}</p>
-    <p><strong>End:</strong> {{ item.end | date : "mediumDate" }}</p>
+    <p><strong>Start:</strong> {{ item.rentalStart | date : "mediumDate" }}</p>
+    <p><strong>End:</strong> {{ item.rentalEnd | date : "mediumDate" }}</p>
   </div>
   } @if (!result.data.rentals.length) {
   <p>No rentals</p>

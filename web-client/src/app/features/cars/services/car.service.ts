@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { injectInfiniteQuery, injectMutation, injectQuery, injectQueryClient } from '@ngneat/query';
-import { Car, CarDetail, CarModel, CarModelQuery, CreateCar } from '../dtos/car';
+import { Car, CarDetail, CarModel, CarModelQuery, CreateCar, CreateRental } from '../dtos/car';
 import { tap } from 'rxjs';
 import { PageResponse } from '../../../core/dto/page';
 
@@ -33,7 +33,7 @@ export class CarService {
 
   getCar(id: string) {
     return this.#query({
-      queryKey: [id],
+      queryKey: ['car', id],
       queryFn: () => this.#http.get<CarDetail>(`cars/${id}`),
     });
   }
