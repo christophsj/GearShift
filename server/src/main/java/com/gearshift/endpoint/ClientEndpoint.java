@@ -8,6 +8,7 @@ import com.gearshift.entity.Client;
 import com.gearshift.mapper.ClientMapper;
 import com.gearshift.service.IClientService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,7 +45,8 @@ public class ClientEndpoint {
     @GetMapping
     public PageDto<ClientDto> getPage(Pageable pageRequest) {
         log.info("Getting clients page: {}", pageRequest);
-        return new PageDto<>(clientService.getPage(pageRequest)
+        Page<Client> page = clientService.getPage(pageRequest);
+        return new PageDto<>(page
                 .stream()
                 .map(clientMapper::toDto)
                 .toList(), pageRequest.getPageNumber());
