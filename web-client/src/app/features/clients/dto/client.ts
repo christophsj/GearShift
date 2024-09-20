@@ -24,7 +24,11 @@ export interface ClientDetails {
     country: string;
     zip: string;
   };
-  rentals: BasicCar[];
+  rentals: {
+    car: BasicCar,
+    rentalStart: Date,
+    rentalEnd: Date
+  }[]
 }
 
 export interface BasicClient {

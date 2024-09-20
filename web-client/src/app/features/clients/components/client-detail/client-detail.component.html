@@ -17,5 +17,19 @@
     {{ result.data.address.country }}
     {{ result.data.address.zip }}
   </p>
+
+  <h3>Rental History</h3>
+  <ul>
+    @for (rental of result.data.rentals; track rental) {
+    <li >
+      <div (click)="link(rental.car.id)">
+      <p>
+        {{ rental.car.model.make }} {{ rental.car.model.model }} -
+        ({{ rental.rentalStart | date }} - {{ rental.rentalEnd | date }})
+      </p>
+    </div>
+    </li>
+    }
+  </ul>
 </div>
 } }
