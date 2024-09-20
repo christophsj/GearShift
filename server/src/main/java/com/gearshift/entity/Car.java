@@ -15,6 +15,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(
+        indexes = {
+                @Index(name = "car_rent_status_index", columnList = "rentStatus")
+        }
+)
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
