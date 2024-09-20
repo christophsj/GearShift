@@ -1,0 +1,9 @@
+@if (overview | async; as result) { @if (result.isLoading) {
+<p>Loading...</p>
+} @if (result.isError) {
+<p>Error</p>
+} @if (result.isSuccess) {
+    <div class="card">
+<p>Currently there are {{ result.data.rentedCount }} cars rented.</p>
+</div>
+} }

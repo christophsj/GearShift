@@ -1,11 +1,14 @@
-import { BasicCar } from "../../features/cars/dtos/car";
-import { BasicClient } from "../../features/clients/dto/client";
-
+import { BasicCar } from '../../features/cars/dtos/car';
+import { BasicClient } from '../../features/clients/dto/client';
 
 export interface RentedCar {
-    id: string;
-    client: BasicClient;
-    car: BasicCar;
-    rentalStart: Date;
-    rentalEnd: Date;
-  }
+  id: string;
+  client: BasicClient;
+  car: BasicCar;
+  rentalStart: Date;
+  rentalEnd: Date;
+}
+
+export interface RentOverview {
+  rentedCount: number;
+}

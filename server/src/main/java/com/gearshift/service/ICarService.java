@@ -47,4 +47,9 @@ public interface ICarService {
      * @param id the id of the car to delete
      */
     void delete(UUID id);
+
+    /**
+     * Count number of currently rented cars
+     */
+    Integer countRentedCars();
 }

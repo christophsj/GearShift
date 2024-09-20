@@ -5,12 +5,13 @@ import { ClientListComponent } from './features/clients/components/client-list/c
 import { ClientCreateComponent } from './features/clients/components/client-create/client-create.component';
 import { ClientDetailComponent } from './features/clients/components/client-detail/client-detail.component';
 import { CarDetailComponent } from './features/cars/components/cars-detail/cars-detail.component';
+import { DashboardComponent } from './features/home/components/dashboard/dashboard.component';
 
 export const routes: Routes = [
 
   {
     path: '',
-    component: CarsListComponent,
+    component: DashboardComponent,
   }, 
   {
     path: 'cars',

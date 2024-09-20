@@ -1,9 +1,6 @@
 package com.gearshift.service.impl;
 
-import com.gearshift.entity.Car;
-import com.gearshift.entity.CarModel;
-import com.gearshift.entity.Client;
-import com.gearshift.entity.RentedCar;
+import com.gearshift.entity.*;
 import com.gearshift.exception.NotFoundException;
 import com.gearshift.repository.CarModelRepository;
 import com.gearshift.repository.CarRepository;
@@ -60,6 +57,11 @@ public class SimpleCarService implements ICarService {
     @Override
     public void delete(UUID id) {
         carRepository.deleteById(id);
+    }
+
+    @Override
+    public Integer countRentedCars() {
+        return carRepository.countAllByRentStatus(RentStatus.RENTED);
     }
 
 }
