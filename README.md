@@ -77,4 +77,5 @@ The frontend will be available at `http://localhost:4200`.
 * Show client rental history in frontend (backend done)
 * Add information how many kilometers a car was rented for
 * Add http interceptor in frontend to e.g. display error snackbars
+* dockerize frontend
 * Add tests
